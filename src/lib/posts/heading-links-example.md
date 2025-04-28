@@ -20,7 +20,7 @@ Lorem ipsum dolor sit amet
 ### This is an h3
 
 Lorem ipsum dolor sit amet
-![sjskadja](/images/jefferson-santos-fCEJGBzAkrU-unsplash.jpg)
+
 #### As you've probably guessed, this is an h4
 
 Lorem ipsum dolor sit amet
