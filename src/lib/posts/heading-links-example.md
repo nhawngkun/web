@@ -1,5 +1,5 @@
 ---
-title: "Automatic heading links in mdsvex"
+title: "Automatic"
 date: "2023-10-26"
 updated: "2023-10-26"
 categories:
