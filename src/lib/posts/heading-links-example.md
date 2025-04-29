@@ -5,7 +5,7 @@ updated: "2025-04-29"
 categories:
   - sveltekit
   - markdown
-coverImage: "/static/images/ảnh1.png"
+coverImage: "/static/images/aanh1.png"
 coverWidth: 16
 coverHeight: 9
 excerpt: "Tổng quan về hệ thống phân tán: định nghĩa, ứng dụng, khái niệm cốt lõi và kiến trúc."
@@ -31,7 +31,7 @@ Hệ thống phân tán có nhiều ứng dụng trong thực tế, bao gồm:
 
 ## 3. Các khái niệm chính của hệ thống phân tán.
 
-- ↔**Scalability**: Khả năng mở rộng hệ thống mà không giảm hiệu suất.
+- **Scalability**: Khả năng mở rộng hệ thống mà không giảm hiệu suất.
 - **Fault Tolerance**: Khả năng tiếp tục hoạt động dù một hoặc nhiều thành phần gặp sự cố.
 - **Availability**: Mức độ hệ thống luôn sẵn sàng phục vụ (đo bằng % uptime).
 - **Transparency**: Ẩn đi các chi tiết phân tán đối với người dùng (vị trí, lỗi, di chuyển tài nguyên).
