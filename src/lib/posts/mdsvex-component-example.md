@@ -1,5 +1,5 @@
 ---
-title: "A Markdown post with a Svelte component"
+title: "A Markdown "
 date: "2023-04-28"
 updated: "2023-04-28"
 categories:
