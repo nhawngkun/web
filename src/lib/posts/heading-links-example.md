@@ -11,11 +11,11 @@ coverHeight: 9
 excerpt: "Tổng quan về hệ thống phân tán: định nghĩa, ứng dụng, khái niệm cốt lõi và kiến trúc."
 ---
 
-## 💻 1. Hệ thống phân tán là gì?
+## 1. Hệ thống phân tán là gì?
 
 Hệ thống phân tán là một tập hợp các máy tính độc lập được kết nối qua mạng, phối hợp với nhau để đạt được một mục tiêu chung. Dù các thành phần có thể nằm ở nhiều vị trí địa lý khác nhau, hệ thống vẫn hoạt động như một thực thể thống nhất, giúp tăng khả năng mở rộng, độ tin cậy và hiệu suất.
 
-## ⚙️ 2. Ứng dụng của hệ thống phân tán
+## 2. Ứng dụng của hệ thống phân tán
 
 Hệ thống phân tán có nhiều ứng dụng trong thực tế, bao gồm:
 
@@ -29,7 +29,7 @@ Hệ thống phân tán có nhiều ứng dụng trong thực tế, bao gồm:
 
 
 
-## 🔑 3. Các khái niệm chính của hệ thống phân tán.
+## 3. Các khái niệm chính của hệ thống phân tán.
 
 - ↔**Scalability**: Khả năng mở rộng hệ thống mà không giảm hiệu suất.
 - **Fault Tolerance**: Khả năng tiếp tục hoạt động dù một hoặc nhiều thành phần gặp sự cố.
@@ -55,7 +55,7 @@ Hệ thống phân tán có nhiều ứng dụng trong thực tế, bao gồm:
 - **Load Balancer**: Phân phối yêu cầu đến các server.
 - **Replication**: Sao lưu nội dung tại nhiều vùng địa lý.
 
-## 🏛️ 4. Kiến trúc của hệ thống phân tán
+## 4. Kiến trúc của hệ thống phân tán
 
 Một số mô hình kiến trúc phổ biến:
 
