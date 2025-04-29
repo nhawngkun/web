@@ -5,7 +5,7 @@ updated: "2025-04-29"
 categories:
   - sveltekit
   - markdown
-coverImage: "/static/images/Screenshot 2025-04-29 161517.png"
+coverImage: "/static/images/git.jpg"
 coverWidth: 16
 coverHeight: 9
 excerpt: "Tổng quan về hệ thống phân tán: định nghĩa, ứng dụng, khái niệm cốt lõi và kiến trúc."
@@ -27,7 +27,7 @@ Hệ thống phân tán có nhiều ứng dụng trong thực tế, bao gồm:
 - **Blockchain & tiền mã hóa**: Bitcoin, Ethereum
 - **IoT & cảm biến thông minh**
 
-![Ứng dụng hệ thống phân tán](/static/images/git.jpg)
+
 
 ## 🔑 3. Các khái niệm chính của hệ thống phân tán.
 
