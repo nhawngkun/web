@@ -5,7 +5,7 @@ updated: "2025-04-29"
 categories:
   - sveltekit
   - markdown
-coverImage: "/static/images/linus-nylund-Q5QspluNZmM-unsplash.jpg"
+coverImage: "/static/images/git.jpg"
 coverWidth: 16
 coverHeight: 9
 excerpt: "Tổng quan về hệ thống phân tán: định nghĩa, ứng dụng, khái niệm cốt lõi và kiến trúc."
