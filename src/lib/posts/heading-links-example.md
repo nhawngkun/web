@@ -5,7 +5,7 @@ updated: "2025-04-29"
 categories:
   - sveltekit
   - markdown
-coverImage: "/static/images/git.jpg"
+coverImage: "/static/images/Screenshot 2025-04-29 161517.png"
 coverWidth: 16
 coverHeight: 9
 excerpt: "Tổng quan về hệ thống phân tán: định nghĩa, ứng dụng, khái niệm cốt lõi và kiến trúc."
