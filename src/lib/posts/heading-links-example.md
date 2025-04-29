@@ -5,7 +5,7 @@ updated: "2025-04-29"
 categories:
   - sveltekit
   - markdown
-coverImage: "/static/images/aanh1.png"
+coverImage: "/images/anh1.png"
 coverWidth: 16
 coverHeight: 9
 excerpt: "Tổng quan về hệ thống phân tán: định nghĩa, ứng dụng, khái niệm cốt lõi và kiến trúc."
