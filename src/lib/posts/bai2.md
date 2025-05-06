@@ -12,7 +12,7 @@ excerpt: "Distributed System notes 2"
 ---
 ## Bài 1 
 ![CPU](/images/CC-bai2/CPU.png)
-- **CPU**
+**CPU**
 + CPU này có 6 nhân vật lý, hỗ trợ 12 luồng xử lý logic (do có SMT – Simultaneous Multithreading).
 
 + Hiện tại chỉ dùng 2% CPU – hệ thống đang rất nhàn rỗi.
@@ -33,7 +33,7 @@ excerpt: "Distributed System notes 2"
      Virtual Processor giúp chia sẻ CPU giữa nhiều tiến trình.
 
      Virtual Memory (như paging và swap) giúp mở rộng RAM hiệu quả bằng ổ đĩa.
-- **GPU**
+**GPU**
 ![GPU](/images/CC-bai2/gpu.png)
 ![GPU1](/images/CC-bai2/gpu1.png)
 + Tên CPU: AMD Ryzen 5 4600H with Radeon Graphics
@@ -60,7 +60,7 @@ excerpt: "Distributed System notes 2"
 
 ⇒ Có thể xử lý tối đa 12 luồng cùng lúc, nhưng thực tế có thể xử lý hàng nghìn threads nhờ context switching (chuyển ngữ cảnh).
 ⇒ Chuyển ngữ cảnh (context switching) cho phép CPU tạm dừng xử lý một tiến trình/luồng và chuyển sang cái khác, mất vài micro giây (μs). Điều này giúp hệ điều hành xử lý song song tốt hơn dù tài nguyên giới hạn.
-- **RAM** :
+**RAM** :
 ![RAM](/images/CC-bai2/Ram.png)
 + Tổng dung lượng: 16.0 GB
 
