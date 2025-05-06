@@ -88,52 +88,52 @@ Cached memory (bộ nhớ đệm): 3.5 GB
 Paged pool / Non-paged pool: 783 MB / 461 MB
 
 ## Bài 2:
-1. Web Server / HTTP Server
+**1. Web Server / HTTP Server**
 - Đa luồng: Mỗi request từ client được xử lý bởi một thread riêng hoặc thông qua thread-pool, giúp phục vụ nhiều kết nối đồng thời.
 
 - Đa tiến trình: Một số server (như Apache prefork) dùng nhiều tiến trình con độc lập, mỗi tiến trình xử lý một nhóm kết nối để tăng độ ổn định và cách ly.
-2. Database Server (MySQL, PostgreSQL)
+**2. Database Server (MySQL, PostgreSQL)**
 - Đa luồng: Mỗi kết nối client được gán cho một thread để thực hiện truy vấn song song.
 
 - Đa tiến trình: PostgreSQL khởi tạo một process riêng cho mỗi kết nối và có thêm các process nền như checkpoint, vacuum, WAL writer.
-3. Hệ thống tính toán phân tán (MPI, HPC)
+**3. Hệ thống tính toán phân tán (MPI, HPC)**
 - Đa luồng: Bên trong mỗi tiến trình MPI, sử dụng OpenMP để chia nhỏ công việc cho nhiều thread chạy song song trên nhiều lõi CPU.
 
 - Đa tiến trình: MPI phân phối tiến trình ra nhiều node trong cluster, mỗi tiến trình thực thi một phần nhiệm vụ.
-4. Xử lý mã hóa/giải mã video (FFmpeg, HandBrake)
+**4. Xử lý mã hóa/giải mã video (FFmpeg, HandBrake)**
 - Đa luồng: Video được chia thành các khung hình (frame), mỗi frame được encode hoặc decode song song bằng thread.
 
 - Đa tiến trình: Khi xử lý nhiều video cùng lúc, mỗi video được giao cho một tiến trình riêng biệt.
 
-5. Game Engine (Unity, Unreal)
+**5. Game Engine (Unity, Unreal)**
 - Đa luồng: Các phần xử lý như rendering, vật lý, AI, âm thanh được tách ra thành các thread riêng biệt để tăng hiệu suất.
 
 - Đa tiến trình: Game client và server thường chạy ở hai tiến trình riêng biệt để độc lập xử lý và tăng bảo mật.
-6. Ứng dụng giao diện người dùng (Electron, WPF, Qt)
+**6. Ứng dụng giao diện người dùng (Electron, WPF, Qt)**
 - Đa luồng: Một thread chính xử lý UI, các tác vụ nặng (như I/O, xử lý ảnh) được đưa sang các thread phụ để tránh đơ giao diện.
 
 - Đa tiến trình: Electron chia thành main process (điều khiển) và renderer process (hiển thị từng cửa sổ) để tăng độ ổn định.
-7. CI/CD & Tự động build (Jenkins, GitLab CI, Make)
+**7. CI/CD & Tự động build (Jenkins, GitLab CI, Make)**
 - Đa luồng: Thread dùng để quản lý pipeline, trigger các bước trong job.
 
 - Đa tiến trình: Mỗi bước build (biên dịch, test) được thực thi trong process riêng, nhất là khi dùng make -j.
-8. Web Crawler & Search Indexing
+**8. Web Crawler & Search Indexing**
 - Đa luồng: Nhiều thread đồng thời tải và phân tích HTML từ các URL khác nhau.
 
 - Đa tiến trình: Crawler được phân chia theo domain hoặc theo phân vùng dữ liệu, mỗi tiến trình phụ trách một phần dữ liệu.
-9. Message Broker (Kafka, RabbitMQ)
+**9. Message Broker (Kafka, RabbitMQ)**
 - Đa luồng: Mỗi consumer hoặc publisher có thể chạy trong thread riêng.
 
 - Đa tiến trình: Mỗi node của cluster chạy như một tiến trình riêng biệt, giúp tăng tính chịu lỗi và khả năng mở rộng.
-10. Big Data – Hadoop, Spark
+**10. Big Data – Hadoop, Spark**
 - Đa luồng: Trong Spark, mỗi executor sử dụng nhiều thread để xử lý các phần dữ liệu (partition) cùng lúc.
 
 - Đa tiến trình: Hadoop chạy các job MapReduce trong container hoặc JVM process riêng biệt.
-11. Training Machine Learning / Deep Learning
+**11. Training Machine Learning / Deep Learning**
 - Đa luồng: DataLoader sử dụng nhiều thread để đọc và xử lý dữ liệu huấn luyện song song.
 
 - Đa tiến trình: Mỗi GPU hoặc phần của mô hình thường chạy trong process riêng biệt để tránh tranh chấp bộ nhớ.
-12. Xử lý dữ liệu cảm biến IoT / Thời gian thực
+**12. Xử lý dữ liệu cảm biến IoT / Thời gian thực**
 - Đa luồng: Mỗi thread đảm nhiệm một loại cảm biến, xử lý tín hiệu theo thời gian thực.
 
 - Đa tiến trình: Mỗi thành phần như thu thập dữ liệu, phân tích, và hiển thị có thể là một process riêng biệt, dễ triển khai theo mô-đun.
