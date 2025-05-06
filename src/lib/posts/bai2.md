@@ -1,5 +1,5 @@
 ---
-title: "Bài tập CC2 Ứng dụng phân tán"
+title: "Bài tập CC2 Ứng dụng phân tán bai2"
 date: "2025-05-06"
 updated: "2025-05-06"
 categories:
@@ -156,6 +156,9 @@ Paged pool / Non-paged pool: 783 MB / 461 MB
 ![anh1](/images/CC-bai2/anh1.jpg)
 ![anh2](/images/CC-bai2/anh2.jpg)
 ![anh3](/images/CC-bai2/anh3.jpg)
+lm j
+ung dung
+ap vao bt lon
 
 ## bài 4:
 🧠 Phần 1: Hạ tầng phần cứng – CPU, GPU, RAM
