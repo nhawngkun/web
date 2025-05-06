@@ -35,7 +35,7 @@ excerpt: "Distributed System notes 2"
      Virtual Memory (như paging và swap) giúp mở rộng RAM hiệu quả bằng ổ đĩa.
 - **GPU**
 ![GPU](/images/CC-bai2/gpu.png)
-![GPU](/images/CC-bai2/gpu11.png)
+![GPU1](/images/CC-bai2/gpu1.png)
 + Tên CPU: AMD Ryzen 5 4600H with Radeon Graphics
 
 + Số nhân vật lý (Cores): 6
