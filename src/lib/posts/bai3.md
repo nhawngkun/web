@@ -82,8 +82,7 @@ Thư viện: pika (client RabbitMQ cho Python)
 pip install pika
 ```
 **🖥️ Producer – Gửi thông điệp (sender.py)**
-``` 
-python
+``` python
 import pika
 
 # Kết nối đến RabbitMQ
@@ -102,8 +101,7 @@ print(" [x] Sent 'Hello RabbitMQ!'")
 connection.close()
 ```
 **📥 Consumer – Nhận thông điệp (receiver.py)**
-```
-python
+```python
 import pika
 
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
@@ -150,8 +148,7 @@ Không phụ thuộc vào ngôn ngữ lập trình.
 pip install jsonrpcserver jsonrpcclient flask
 ```
 🌐 Server – server.py
-```
-python
+```python
 from flask import Flask, request
 from jsonrpcserver import method, dispatch
 
@@ -169,8 +166,7 @@ if __name__ == "__main__":
     app.run(port=5000)
 ```
 📡 Client – client.py
-```
-python
+```python
 from jsonrpcclient import request
 
 response = request("http://localhost:5000", "add", x=7, y=5)
