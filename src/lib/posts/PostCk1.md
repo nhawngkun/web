@@ -127,8 +127,10 @@ Hầu hết các website đọc truyện/báo hiện nay vẫn đang sử dụng
 - Độ trễ cao khi phân tích dữ liệu hành vi phức tạp
 ### Neo4j Graph: Giải pháp đột phá
 - Neo4j, với tư cách là cơ sở dữ liệu đồ thị hàng đầu, cung cấp những thuật toán đột phá giải quyết trực tiếp các vấn đề tồn đọng của SQL:
+
 **1. Personalized PageRank: Đề xuất nội dung cá nhân hóa**
 **Cách hoạt động**: Thuật toán này, được Google sử dụng cho công cụ tìm kiếm, đã được Neo4j tối ưu hóa cho việc đề xuất nội dung. Nó xác định tầm quan trọng của mỗi nút (truyện/bài báo) dựa trên mối liên hệ với người dùng và các nút khác.
+
 **Ưu điểm so với SQL:**
 
 - Xem xét toàn bộ mạng lưới mối quan hệ, không chỉ dữ liệu trực tiếp
@@ -155,6 +157,7 @@ ORDER BY score DESC LIMIT 10
 ```
 **2. Dijkstra Path Finding: Phân tích hành trình đọc**
 **Cách hoạt động:** Thuật toán tìm đường đi tối ưu được điều chỉnh để phân tích và đề xuất "hành trình đọc" cho người dùng, giúp họ di chuyển từ nội dung hiện tại đến nội dung tiếp theo một cách tự nhiên.
+
 **Ưu điểm so với SQL:**
 
 - Tìm đường đi tối ưu trong mạng lưới nội dung phức tạp
@@ -184,6 +187,7 @@ ORDER BY cost ASC LIMIT 5
 ```
 **3. Louvain Modularity:** Tự động phân loại nội dung
 **Cách hoạt động:** Thuật toán này tự động phát hiện các cộng đồng/nhóm nội dung có mối liên hệ chặt chẽ với nhau, mà không cần định nghĩa trước số lượng nhóm.
+
 **Ưu điểm so với SQL:**
 
 Tự động phát hiện "vũ trụ nội dung" mà ngay cả biên tập viên cũng chưa nhận ra
@@ -212,6 +216,7 @@ ORDER BY SIZE(contentInCommunity) DESC
 ```
 **4. Adamic-Adar:** Dự đoán liên kết người dùng-nội dung
 **Cách hoạt động:** Thuật toán này dự đoán các liên kết tiềm năng giữa người dùng và nội dung dựa trên "mối quan hệ chung", đặc biệt ưu tiên các mối quan hệ hiếm có giá trị cao.
+
 **Ưu điểm so với SQL:**
 
 - Xem xét "độ hiếm" của mối liên hệ, đánh giá cao các kết nối ý nghĩa
@@ -237,6 +242,7 @@ ORDER BY score DESC LIMIT 10
 ```
 **5. Temporal Pattern Mining:** Phát hiện xu hướng thời gian thực
 **Cách hoạt động:** Kết hợp phân tích thời gian với weighted degree centrality để phát hiện nội dung đang trở thành xu hướng và sự lan truyền của xu hướng qua thời gian.
+
 **Ưu điểm so với SQL:**
 
 - Phát hiện xu hướng ngay từ giai đoạn đầu, không chỉ sau khi đã phổ biến
@@ -264,8 +270,12 @@ LIMIT 10
 ### Lợi ích kinh doanh khi chuyển đổi sang Neo4j
 
 **Tăng thời gian đọc:** Người dùng tiếp cận được nội dung phù hợp hơn, dẫn đến thời gian đọc dài hơn và tương tác nhiều hơn.
+
 **Tăng tỷ lệ giữ chân:** Đề xuất cá nhân hóa chất lượng cao giúp người dùng quay lại thường xuyên hơn.
+
 **Tối ưu hóa nội dung:** Hiểu rõ mối liên hệ giữa các nội dung giúp biên tập viên đưa ra quyết định sáng tạo tốt hơn.
+
 **Phát hiện xu hướng sớm:** Nhận biết và thúc đẩy nội dung tiềm năng trở thành xu hướng trước đối thủ.
+
 **Hiệu suất vượt trội:** Xử lý truy vấn phức tạp nhanh hơn 10-1000 lần so với SQL tương đương, giảm chi phí máy chủ.
 
