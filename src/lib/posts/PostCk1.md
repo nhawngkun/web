@@ -137,7 +137,7 @@ Hầu hết các website đọc truyện/báo hiện nay vẫn đang sử dụng
 - Hiệu suất cao hơn 10-100 lần so với SQL tương đương cho đề xuất phức tạp
 
 **Triển khai thực tế:**
-```cypher
+```Cypher
 MATCH (u:User {id: $userId})-[:READS]->(content)<-[:READS]-(similar:User)
 MATCH (similar)-[:READS]->(rec:Content)
 WHERE NOT (u)-[:READS]->(rec)
@@ -163,6 +163,7 @@ Hiệu suất cao hơn 1000 lần so với CTEs đệ quy trong SQL cho đườn
 Khả năng đề xuất chuỗi nội dung theo trình tự hợp lý
 
 Triển khai thực tế:
+```
 cypherMATCH (start:Content {id: $currentContentId})
 MATCH (category:Category)<-[:BELONGS_TO]-(start)
 MATCH (category)<-[:BELONGS_TO]-(target:Content)
@@ -180,6 +181,7 @@ CALL gds.shortestPath.dijkstra.stream({
 YIELD nodeId, cost
 RETURN target.title, cost
 ORDER BY cost ASC LIMIT 5
+```
 3. Louvain Modularity: Tự động phân loại nội dung
 Cách hoạt động: Thuật toán này tự động phát hiện các cộng đồng/nhóm nội dung có mối liên hệ chặt chẽ với nhau, mà không cần định nghĩa trước số lượng nhóm.
 Ưu điểm so với SQL:
@@ -190,6 +192,7 @@ Phát hiện nội dung chuyển tiếp giữa các thể loại khác nhau
 Hỗ trợ phân loại đa chiều, một nội dung có thể thuộc nhiều cộng đồng
 
 Triển khai thực tế:
+```
 cypherCALL gds.louvain.stream({
   nodeProjection: 'Content',
   relationshipProjection: {
@@ -206,6 +209,7 @@ YIELD nodeId, communityId, intermediateCommunityIds
 WITH gds.util.asNode(nodeId) AS content, communityId
 RETURN communityId, COLLECT(content.title) AS contentInCommunity
 ORDER BY SIZE(contentInCommunity) DESC
+```
 4. Adamic-Adar: Dự đoán liên kết người dùng-nội dung
 Cách hoạt động: Thuật toán này dự đoán các liên kết tiềm năng giữa người dùng và nội dung dựa trên "mối quan hệ chung", đặc biệt ưu tiên các mối quan hệ hiếm có giá trị cao.
 Ưu điểm so với SQL:
@@ -216,6 +220,7 @@ Không cần mô hình phức tạp như học máy truyền thống
 Hiệu suất cao với dữ liệu thưa thớt (sparse data)
 
 Triển khai thực tế:
+```
 cypherMATCH (u:User {id: $userId})-[:FOLLOWS]->(followedEntity)
 MATCH (followedEntity)<-[:FOLLOWS]-(similarUser:User)
 MATCH (similarUser)-[:READS]->(content:Content)
@@ -229,6 +234,7 @@ YIELD node1, node2, score
 WHERE node1 = u AND node2 = content
 RETURN content.title, score
 ORDER BY score DESC LIMIT 10
+```
 5. Temporal Pattern Mining: Phát hiện xu hướng thời gian thực
 Cách hoạt động: Kết hợp phân tích thời gian với weighted degree centrality để phát hiện nội dung đang trở thành xu hướng và sự lan truyền của xu hướng qua thời gian.
 Ưu điểm so với SQL:
@@ -239,7 +245,8 @@ Xác định được sự lan truyền của xu hướng qua các nhóm ngườ
 Không yêu cầu tính toán lại toàn bộ khi có dữ liệu mới
 
 Triển khai thực tế:
-cypherMATCH (c:Content)<-[r:READS]-(u:User)
+```cypher
+MATCH (c:Content)<-[r:READS]-(u:User)
 WHERE r.timestamp > $timeWindow
 WITH c, COUNT(r) AS recentReads,
   COLLECT(r.timestamp) AS timestamps
@@ -253,3 +260,4 @@ WITH c, recentReads,
 RETURN c.title, recentReads, growthRate
 ORDER BY growthRate DESC, recentReads DESC
 LIMIT 10
+```
