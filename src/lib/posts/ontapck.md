@@ -4,7 +4,7 @@ date: "2025-05-23"
 updated: "2025-05-23"
 categories: ["hệ thống phân tán"]
 excerpt: "Các câu hỏi ôn tập cuối kì"
-coverImage: "images/GK1/ck1.jpg"
+coverImage: "/images/GK1/ck1.jpg"
 ---
 ## 1. Hệ thống phân tán, tập trung, phi tập trung khác nhau như thế nào, nêu ví dụ về mỗi loại, làm thế nào để xác định sự khác biệt chính?
 - Hệ thống tập trung (Centralized system): Toàn bộ dữ liệu và xử lý nằm ở một máy chủ trung tâm. Ví dụ: hệ thống ngân hàng nội bộ cũ.
