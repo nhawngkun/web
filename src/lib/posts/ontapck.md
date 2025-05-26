@@ -49,19 +49,19 @@ Là hệ thống gồm nhiều máy tính độc lập, phối hợp với nhau 
 
 ## 8. Chụp và để lên blog các hình của thuật toán Cristian, Berkeley, RBS, Lamport, Bully, Ring
 Minh họa thuật toán Cristian
-![Minh họa thuật toán Cristian](/images/cristian.webp)
+![Minh họa thuật toán Cristian](/images/GK1/Cristian.png)
 
 Minh họa thuật toán Berkeley
-![Minh họa thuật toán Berkeley](/images/berkeley.webp)
+![Minh họa thuật toán Berkeley](/images/GK1/Berkeley.png)
 
 Minh họa thuật toán Lamport
-![Minh họa thuật toán Lamport](/images/lamport.webp)
+![Minh họa thuật toán Lamport](/images/GK1/Lamport.webp)
 
 Minh họa thuật toán Bully
-![Minh họa thuật toán Bully](/images/bully.webp)
+![Minh họa thuật toán Bully](/images/GK1/bully.png)
 
 Minh họa thuật toán Ring
-![Minh họa thuật toán Ring](/images/ring.webp)
+![Minh họa thuật toán Ring](/images/GK1/ring.png)
 
 
 ## 9. Kỹ thuật phân tán nào hỗ trợ lập trình thủ tục, lập trình web, hướng đối tượng, liệt kê
