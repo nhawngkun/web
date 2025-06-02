@@ -1,7 +1,7 @@
 ---
 title: "Bài tập giữa kì số 4"
-date: "2025-05-1010"
-updated: "2025-05-1010"
+date: "2025-06-02"
+updated: "2025-06-02"
 categories:
   - sveltekit
   - markdown
@@ -97,14 +97,18 @@ Hệ thống vẫn hoạt động bình thường ngay cả khi một hoặc nhi
 Dữ liệu không bị mất mát do luôn có nhiều bản sao trên các node khác nhau.
 Tự động chuyển đổi (failover):
 Khi node chính gặp sự cố, Neo4j Aura sẽ tự động chuyển vai trò sang node khác mà không cần can thiệp thủ công.
+
 **3. Chưa có Sharding hoặc Replication tự xây dựng**
+
 - Sharding (phân mảnh dữ liệu theo khóa, ví dụ: chia sách theo thể loại hoặc tác giả) chưa được áp dụng trong hệ thống hiện tại.
 - Replication được sử dụng là tính năng mặc định của Neo4j Aura, bạn không cần tự viết code để đồng bộ dữ liệu giữa các node.
+
 **4. Minh họa thực tế**
 - Khi người dùng thêm một cuốn sách mới qua backend, dữ liệu sẽ được ghi vào Neo4j Aura và tự động sao chép sang các node khác trong cluster.
 - Nếu một node database bị lỗi, các truy vấn vẫn được phục vụ từ các node còn lại mà người dùng không nhận thấy sự gián đoạn.
 
 ### 5. Basic Stress Test
+
 **- Đã đáp ứng ở mức cơ bản.**
 
 **high-load-test.js**

@@ -1,7 +1,7 @@
 ---
 title: "Bài tập giữa kì số 3"
-date: "2025-05-1010"
-updated: "2025-05-1010"
+date: "2025-05-27"
+updated: "2025-05-27"
 categories:
   - sveltekit
   - markdown
