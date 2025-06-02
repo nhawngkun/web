@@ -10,6 +10,10 @@ coverWidth: 16
 coverHeight: 9
 excerpt: "Deliverable 4 - Ứng dụng Phân tán - Giữa kỳ"
 ---
+**Tải file FDP tại đây**
+[File PDF](/images/GK2/Baocao.pdf)
+
+**Link Gibhub**https://github.com/nhawngkun/BTlon-udpt-
 ## Tiêu chí bắt buộc :
 ### 1. Fault Tolerance
 

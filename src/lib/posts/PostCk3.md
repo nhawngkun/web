@@ -100,6 +100,8 @@ Tách riêng Controllers, Models, Middleware, Routers → giúp dự án dễ m�
 
 ### 2. Demo hoạt động của hệ thống (hoặc video minh họa):
 
+[Click to watch the video](/images/GK2/deno.mp4)
+
 ### 3.Mã nguồn (Code Snippets):
 **- syncBooksNeo4jFull.js**
 ```javascript
