@@ -3,3 +3,5 @@ node_modules
 /build
 /.svelte-kit
 /package
+*.mp4
+static/images/GK2/deno.mp4
