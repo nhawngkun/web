@@ -85,7 +85,7 @@ pip install pika
 ``` python
 import pika
 
-# Kết nối đến RabbitMQ
+# Kết nối đến RabbitMQđ
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 channel = connection.channel()
 
