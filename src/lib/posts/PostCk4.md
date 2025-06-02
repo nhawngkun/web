@@ -15,17 +15,62 @@ excerpt: "Deliverable 4 - Ứng dụng Phân tán - Giữa kỳ"
 
 **- Đã đáp ứng ở mức cơ bản.**
 
-- Backend triển khai trên Render, tự động restart khi gặp lỗi.
-- Database dùng Neo4j Aura (cloud), có sẵn cơ chế tự động backup, phục hồi, replication.
-- Frontend trên Vercel, tự động phục hồi khi gặp lỗi triển khai.
-- Xử lý lỗi: Backend có try-catch, trả về lỗi hợp lý, không làm sập toàn bộ hệ thống khi một API lỗi.
+**1. Backend (Render)**
+- Triển khai trên Render:
+Render là nền tảng cloud có khả năng tự động giám sát và khởi động lại ứng dụng Node.js/Express nếu gặp sự cố (crash, out-of-memory, lỗi mạng, v.v).
+Tự động restart:
+- Khi backend bị lỗi hoặc dừng đột ngột, Render sẽ tự động khởi động lại tiến trình, đảm bảo dịch vụ luôn sẵn sàng cho người dùng.
+- Xử lý lỗi trong code:
+   - Các controller backend đều sử dụng try-catch để bắt lỗi khi truy vấn database hoặc xử lý logic.
+   - Nếu một API bị lỗi, backend trả về mã lỗi và thông báo hợp lý (ví dụ: 500 Internal Server Error), các API khác vẫn hoạt động bình thường.
+Không có lỗi nào làm sập toàn bộ server. 
 
+**2. Database (Neo4j Aura)**
+- Dùng Neo4j Aura Cloud:
+  - Neo4j Aura là dịch vụ database cloud có sẵn tính năng replication (sao lưu dữ liệu sang nhiều node) và backup tự động.
+  - Nếu một node database gặp sự cố, hệ thống tự động chuyển sang node khác mà không ảnh hưởng đến ứng dụng.
+Dữ liệu luôn được bảo vệ và phục hồi nhanh chóng khi có sự cố.
+
+**3. Frontend (Vercel)**
+- Triển khai trên Vercel:
+   - Vercel tự động phục hồi khi gặp lỗi triển khai hoặc downtime.
+   - Nếu frontend bị lỗi build/deploy, chỉ cần sửa lỗi và push lại code, Vercel sẽ tự động build lại và phục hồi dịch vụ.
+   - Người dùng luôn có thể truy cập giao diện web khi backend/database vẫn hoạt động.
 ### 2. Distributed Communication
 
 **- Đã đáp ứng.**
-- Frontend (Vercel), Backend (Render), Database (Neo4j Aura) chạy trên các máy chủ/cloud khác nhau.
-- Giao tiếp qua HTTP RESTful API (axios, express).
-- Hệ thống hoạt động phân tán thực sự, không chỉ trên một máy.
+
+
+**1. Triển khai phân tán trên nhiều nền tảng cloud**
+**Frontend:**
+- Được triển khai trên Vercel (một nền tảng cloud chuyên cho frontend).
+- Người dùng truy cập website qua domain công khai của Vercel từ bất kỳ đâu trên Internet.
+
+**Backend:**
+- Được triển khai trên Render (cloud platform cho backend).
+- Backend có địa chỉ riêng, nhận các request từ frontend hoặc các client khác qua Internet.
+
+**Database:**
+- Sử dụng Neo4j Aura (cloud database), hoàn toàn tách biệt với backend và frontend.
+- Backend kết nối tới Neo4j Aura qua Internet bằng giao thức bảo mật.
+
+**2. Giao tiếp qua HTTP RESTful API**
+
+**Frontend ↔ Backend:**
+- Frontend sử dụng thư viện axios để gửi các yêu cầu HTTP (GET, POST, PUT, DELETE) tới backend.
+- Ví dụ: Khi người dùng truy cập trang danh sách sách, frontend gửi request GET tới endpoint /books của backend trên Render.
+
+**Backend ↔ Database:**
+- Backend sử dụng thư viện neo4j-driver để giao tiếp với Neo4j Aura thông qua giao thức mạng (bolt+s hoặc https).
+- Các truy vấn dữ liệu (Cypher query) được gửi qua mạng tới database cloud, nhận kết quả trả về.
+
+**3. Đặc điểm phân tán thực sự**
+
+**Các thành phần độc lập về vật lý:**
+- Mỗi thành phần chạy trên một máy chủ/cloud riêng biệt, không phụ thuộc vào nhau về mặt vật lý.
+- Có thể mở rộng hoặc thay thế từng thành phần mà không ảnh hưởng đến thành phần khác.
+- Hệ thống vẫn hoạt động khi triển khai trên nhiều máy, không chỉ chạy trên localhost.
+
 
 ### 3. Sharding hoặc Replication
 
@@ -36,12 +81,30 @@ excerpt: "Deliverable 4 - Ứng dụng Phân tán - Giữa kỳ"
 ### 4. Simple Monitoring / Logging
 
 **- Đã đáp ứng ở mức cơ bản.**
-Backend có log lỗi và log hoạt động ra console (xem các file controller, có console.log, console.error).
-Frontend có thông báo lỗi/toast cho người dùng.
-Admin Dashboard hiển thị thống kê số lượng user, sách, thể loại, lượt đọc (bảng điều khiển đơn giản).
-Chưa có logging nâng cao (ghi file log, dashboard real-time), nhưng đã có monitoring cơ bản.
-### 5. Basic Stress Test
 
+**1. Sử dụng Replication mặc định của Neo4j Aura**
+- Neo4j Aura là dịch vụ cơ sở dữ liệu đồ thị trên cloud, cung cấp sẵn tính năng replication (sao chép dữ liệu) giữa nhiều node trong một cụm (cluster).
+- Khi bạn ghi dữ liệu (thêm, sửa, xóa sách), dữ liệu sẽ được tự động sao chép sang các node khác trong cluster.
+- Nếu một node gặp sự cố (lỗi phần cứng, mất kết nối...), các node còn lại vẫn giữ bản sao dữ liệu và tiếp tục phục vụ truy vấn, đảm bảo hệ thống không bị gián đoạn.
+
+**2. Lợi ích của Replication**
+
+**Tăng tính sẵn sàng:**
+
+Hệ thống vẫn hoạt động bình thường ngay cả khi một hoặc nhiều node trong cluster bị lỗi.
+
+**Bảo vệ dữ liệu:**
+Dữ liệu không bị mất mát do luôn có nhiều bản sao trên các node khác nhau.
+Tự động chuyển đổi (failover):
+Khi node chính gặp sự cố, Neo4j Aura sẽ tự động chuyển vai trò sang node khác mà không cần can thiệp thủ công.
+**3. Chưa có Sharding hoặc Replication tự xây dựng**
+- Sharding (phân mảnh dữ liệu theo khóa, ví dụ: chia sách theo thể loại hoặc tác giả) chưa được áp dụng trong hệ thống hiện tại.
+- Replication được sử dụng là tính năng mặc định của Neo4j Aura, bạn không cần tự viết code để đồng bộ dữ liệu giữa các node.
+**4. Minh họa thực tế**
+- Khi người dùng thêm một cuốn sách mới qua backend, dữ liệu sẽ được ghi vào Neo4j Aura và tự động sao chép sang các node khác trong cluster.
+- Nếu một node database bị lỗi, các truy vấn vẫn được phục vụ từ các node còn lại mà người dùng không nhận thấy sự gián đoạn.
+
+### 5. Basic Stress Test
 **- Đã đáp ứng ở mức cơ bản.**
 
 **high-load-test.js**
