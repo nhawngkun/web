@@ -37,6 +37,8 @@ excerpt: "Deliverable 2 - Website"
 
 **3.Database (Neo4j):**
 
+![Database](/images/GK2/database.jpg)
+
 **Vai trò:**
 - Lưu trữ dữ liệu sách, tác giả, thể loại dưới dạng đồ thị.
 - Quản lý các quan hệ giữa các thực thể (ví dụ: WRITTEN_BY, BELONGS_TO).
